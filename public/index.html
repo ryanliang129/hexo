@@ -2,64 +2,300 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Hexo</title>
-  <meta name="author" content="John Doe">
+  <title>Sometimes ever, sometimes never.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="Yutong Liang">
   
   
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sometimes ever, sometimes never.">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Sometimes ever, sometimes never.">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sometimes ever, sometimes never.">
+<meta name="twitter:description">
   
-  <meta property="og:site_name" content="Hexo"/>
-
+    <link rel="alternate" href="/atom.xml" title="Sometimes ever, sometimes never." type="application/atom+xml">
   
-    <meta property="og:image" content="undefined"/>
   
-
-  <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
-
 </head>
 
-
 <body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Hexo</a></h1>
-  <h2><a href="/"></a></h2>
-</div>
-<nav id="main-nav" class="alignright">
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">Sometimes ever, sometimes never.</a></h1>
+    <p><a href="/"></a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
   <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div></header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
+</header>
+    <!-- ad start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AdSense -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7064703353490563"
+     data-ad-slot="9366157133"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <!-- ad end -->
+    <div class="content">
+
+
+
+
   
-  <div class="post-content">
-    <header>
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2016/01/09/Dynamic-Programming/">
+  <time datetime="2016-01-08T16:18:20.000Z">
+    2016-01-09
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2016/01/09/Dynamic-Programming/">Dynamic Programming</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>Dynamic Programming is a powerful technique that allows one to solve many different types of problems in time <em>O</em>(<em>n</em><sup>2</sup>) or <em>O</em>(<em>n</em><sup>3</sup>) for which a naive approach would take exponential time. In this lecture, we discuss this technique, and present a few key examples. Topics in this lecture include:  </p>
+<p>  • The basic idea of Dynamic Programming.<br>  • Example: Longest Common Subsequence.<br>  • Example: Knapsack.<br>  • Example: Matrix-chain multiplication.  </p>
+<h2 id="The_Basic_Idea"><a href="#The_Basic_Idea" class="headerlink" title="The Basic Idea"></a>The Basic Idea</h2><p>Dynamic Programming is a powerful technique that can be used to solve many problems in time <em>O</em>(<em>n</em><sup>2</sup>) or <em>O</em>(<em>n</em><sup>3</sup>) for which a naive approach would take exponential time. (Usually to get running time below that—if it is possible—one would need to add other ideas as well.) Dynamic Programming is a general approach to solving problems, much like “divide-and-conquer” is a general method, except that unlike divide-and-conquer, the subproblems will typically overlap. This lecture we will present two ways of thinking about Dynamic Programming as well as a few examples.  </p>
+<p>There are several ways of thinking about the basic idea.  </p>
+<p><strong>Basic Idea (version 1):</strong> What we want to do is take our problem and somehow break it down into a reasonable number of subproblems (where “reasonable” might be something like <em>n</em><sup>2</sup>) in such a way that we can use optimal solutions to the smaller subproblems to give us optimal solutions to the larger ones. Unlike divide-and-conquer (as in mergesort or quicksort) it is OK if our subproblems overlap, so long as there are not too many of them.  </p>
+<h2 id="Example__231_3A_Longest_Common_Subsequence"><a href="#Example__231_3A_Longest_Common_Subsequence" class="headerlink" title="Example #1: Longest Common Subsequence"></a>Example #1: Longest Common Subsequence</h2><p><strong>Definition 1</strong> <em>The <strong>Longest Common Subsequence (LCS)</strong> problem is as follows. We are given two strings: string S of length n, and string T of length m. Our goal is to produce their longest common subsequence: the longest sequence of characters that appear left-to-right (but not necessarily in a contiguous block) in both strings.</em>  </p>
+<p>For example, consider:  </p>
+<center><em>S</em> = ABAZDC</center><br><center><em>T</em> = BACBAD</center>  
+
+<p>In this case, the LCS has length 4 and is the string <strong>ABAD</strong>. Another way to look at it is we are finding a 1-1 matching between some of the letters in <em>S</em> and some of the letters in <em>T</em> such that none of the edges in the matching cross each other.  </p>
+<p>For instance, this type of problem comes up all the time in genomics: given two DNA fragments, the LCS gives information about what they have in common and the best way to line them up.  </p>
+<p>Let’s now solve the LCS problem using Dynamic Programming. As subproblems we will look at the LCS of a prefix of <em>S</em> and a prefix of <em>T</em>, running over all pairs of prefixes. For simplicity, let’s worry first about finding the <em>length</em> of the LCS and then we can modify the algorithm to produce the actual sequence itself.  </p>
+<p>So, here is the question: say LCS[i,j] is the length of the LCS of <em>S</em>[1..i] with <em>T</em>[1..j]. How can we solve for LCS[i,j] in terms of the LCS’s of the smaller problems?</p>
+<p><strong>Case 1:</strong> what if <em>S</em>[i] &lt;&gt; <em>T</em>[j]? Then, the desired subsequence has to ignore one of <em>S</em>[i] or <em>T</em>[j] so we have:  </p>
+<center>LCS[i,j] = max(LCS[i − 1,j], LCS[i,j − 1]).</center>    
+
+<p><strong>Case 2:</strong> what if <em>S</em>[i] = <em>T</em>[j]? Then the LCS of <em>S</em>[1..i] and <em>T</em>[1..j] might as well match them up. For instance, if I gave you a common subsequence that matched <em>S</em>[i] to an earlier location in <em>T</em>, for instance, you could always match it to <em>T</em>[j] instead. So, in this case we have:  </p>
+<center>LCS[i,j] = 1 + LCS[i−1,j−1].</center>   
+
+<p>So, we can just do two loops (over values of <em>i</em> and <em>j</em>) , filling in the LCS using these rules. Here’s what it looks like pictorially for the example above, with S along the leftmost column and T along the top row.  </p>
+<center><br><table><br><tbody><br><tr><td><em></em></td><td><em>B</em></td><td><em>A</em></td><td><em>C</em></td><td><em>B</em></td><td><em>A</em></td><td><em>D</em></td></tr><br><tr><td>A</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><br><tr><td>B</td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td>2</td></tr><br><tr><td>A</td><td>1</td><td>2</td><td>2</td><td>2</td><td>3</td><td>3</td></tr><br><tr><td>Z</td><td>1</td><td>2</td><td>2</td><td>2</td><td>3</td><td>3</td></tr><br><tr><td>D</td><td>1</td><td>2</td><td>2</td><td>2</td><td>3</td><td>4</td></tr><br><tr><td>C</td><td>1</td><td>2</td><td>3</td><td>3</td><td>3</td><td>4</td></tr><br></tbody><br></table><br></center>   
+
+<p>We just fill out this matrix row by row, doing constant amount of work per entry, so this takes <em>O</em>(<em>mn</em>) time overall. The final answer (the length of the LCS of <em>S</em> and <em>T</em>) is in the lower-right corner.  </p>
+<p><strong>How can we now find the sequence?</strong> To find the sequence, we just walk backwards through matrix starting the lower-right corner. If either the cell directly above or directly to the right contains a value equal to the value in the current cell, then move to that cell (if both to, then chose either one). If both such cells have values strictly less than the value in the current cell, then move diagonally up-left (this corresponts to applying Case 2), and output the associated character. This will output the characters in the LCS in reverse order. For instance, running on the matrix above, this outputs <strong>DABA</strong>.</p>
+<h2 id="More_on_The_Basic_Idea_2C_and_Example__231_Revisited"><a href="#More_on_The_Basic_Idea_2C_and_Example__231_Revisited" class="headerlink" title="More on The Basic Idea, and Example #1 Revisited"></a>More on The Basic Idea, and Example #1 Revisited</h2><p>We have been looking at what is called “bottom-up Dynamic Programming”. Here is another way of thinking about Dynamic Programming, that also leads to basically the same algorithm, but viewed from the other direction. Sometimes this is called “top-down Dynamic Programming”.  </p>
+<p><strong>Basic Idea (version 2):</strong> Suppose you have a recursive algorithm for some problem that gives you a really bad recurrence like <em>T</em>(<em>n</em>) = 2<em>T</em>(<em>n</em> − 1) + <em>n</em>. However, suppose that many of the subproblems you reach as you go down the recursion tree are the same. Then you can hope to get a big savings if you store your computations so that you only compute each <em>different</em> subproblem once. You can store these solutions in an array or hash table. This view of Dynamic Programming is often called <em>memoizing</em>.  </p>
+<p>For example, for the LCS problem, using our analysis we had at the beginning we might have produced the following exponential-time recursive program (arrays start at 1):  </p>
+<pre><code>LCS(S,n,T,m)    
+{    
+    if (n==0 || m==0)   
+        return 0;    
+    if (S[n] == T[m]) 
+        result = 1 + LCS(S,n-1,T,m-1); // no harm in matching up
+    else 
+        result = max{LCS(S,n-1,T,m), LCS(S,n,T,m-1)};  
+    return result;
+}  
+</code></pre><p>This algorithm runs in exponential time. In fact, if <em>S</em> and <em>T</em> use completely disjoint sets of characters (so that we never have <em>S</em>[n] == <em>T</em>[m]) then the number of times that LCS(S,1,T,1) is recursively called equals [n+m−2,m-1]. In the memoized version, we store results in a matrix so that any given set of arguments to LCS only produces new work (new recursive calls) once. The memoized version begins by initializing arr[i][j] to unknown for all <em>i</em>, <em>j</em>, and then proceeds as follows:  </p>
+<pre><code>LCS(S,n,T,m)
+{
+    if (n==0 || m==0) 
+        return 0;
+    if (arr[n][m] != unknown) return arr[n][m]; // &lt;- added this line (*) if (S[n] == T[m]) 
+        result = 1 + LCS(S,n-1,T,m-1);
+    else 
+        result = max{LCS(S,n-1,T,m), LCS(S,n,T,m-1)};
+    arr[n][m] = result; // &lt;- and this line (**)  
+    return result;
+}  
+</code></pre><p>All we have done is saved our work in line (**) and made sure that we only embark on new recursive calls if we haven’t already computed the answer in line (*).  </p>
+<p>In this memoized version, our running time is now just <em>O</em>(<em>mn</em>). One easy way to see this is as follows. First, notice that we reach line (**) at most <em>mn</em> times (at most once for any given value of the parameters). This means we make at most 2<em>mn</em> recursive calls total (at most two calls for each time we reach that line). Any given call of LCS involves only <em>O</em>(1) work (performing some equality checks and taking a max or adding 1), so overall the total running time is <em>O</em>(<em>mn</em>).  </p>
+<p>Comparing bottom-up and top-down dynamic programming, both do almost the same work. The top-down (memoized) version pays a penalty in recursion overhead, but can potentially be faster than the bottom-up version in situations where some of the subproblems never get examined at all. These differences, however, are minor: you should use whichever version is easiest and most intuitive for you for the given problem at hand.  </p>
+<p><strong>More about LCS: Discussion and Extensions.</strong> An equivalent problem to LCS is the “mini- mum edit distance” problem, where the legal operations are insert and delete. (E.g., the unix “diff” command, where <em>S</em> and <em>T</em> are files, and the elements of <em>S</em> and <em>T</em> are lines of text). The minimum edit distance to transform <em>S</em> into <em>T</em> is achieved by doing |<em>S</em>|−LCS(S,T) deletes and |<em>T</em>|−LCS(S,T) inserts.  </p>
+<p>In computational biology applications, often one has a more general notion of sequence alignment. Many of these different problems all allow for basically the same kind of Dynamic Programming solution.</p>
+<h2 id="Example__232_3A_The_Knapsack_Problem"><a href="#Example__232_3A_The_Knapsack_Problem" class="headerlink" title="Example #2: The Knapsack Problem"></a>Example #2: The Knapsack Problem</h2><p>Imagine you have a homework assignment with different parts labeled A through G. Each part has a “value” (in points) and a “size” (time in hours to complete). For example, say the values and times for our assignment are:  </p>
+<center><br><table><br><tbody><br><tr><td><em></em></td><td><em><center>A</center></em></td><td><em><center>B</center></em></td><td><em><center>C</center></em></td><td><em><center>D</center></em></td><td><em><center>E</center></em></td><td><em><center>F</center></em></td><td><em><center>G</center></em></td></tr><br><tr><td><em><center>value</center></em></td><td><center>7</center></td><td><center>9</center></td><td><center>5</center></td><td><center>12</center></td><td><center>14</center></td><td><center>6</center></td><td><center>12</center></td></tr><br><tr><td><em><center>time</center></em></td><td><center>3</center></td><td><center>4</center></td><td><center>2</center></td><td><center>6</center></td><td><center>7</center></td><td><center>3</center></td><td><center>5</center></td></tr><br></tbody><br></table><br></center>  
+
+<p>Say you have a total of 15 hours: which parts should you do? If there was partial credit that was proportional to the amount of work done (e.g., one hour spent on problem C earns you 2.5 points) then the best approach is to work on problems in order of points/hour (a greedy strategy). But, what if there is no partial credit? In that case, which parts should you do, and what is the best total value possible?  </p>
+<p>The above is an instance of the <em>knapsack problem</em>, formally defined as follows:  </p>
+<p><strong>Definition 2</strong> <em>In the <strong>knapsack problem</strong> we are given a set of n items, where each item i is specified by a size si and a value vi. We are also given a size bound S (the size of our knapsack). The goal is to find the subset of items of maximum total value such that sum of their sizes is at most S (they all fit into the knapsack).</em>  </p>
+<p>We can solve the knapsack problem in exponential time by trying all possible subsets. With Dynamic Programming, we can reduce this to time <em>O</em>(<em>nS</em>).  </p>
+<p>Let’s do this top down by starting with a simple recursive solution and then trying to memoize it. Let’s start by just computing the best possible total value, and we afterwards can see how to actually extract the items needed.</p>
+<pre><code>// Recursive algorithm: either we use the last element or we don’t.
+   Value(n,S) // S = space left, n = # items still to choose from 
+{
+    if (n == 0) 
+        return 0; 
+    if (s_n &gt; S) 
+        result = Value(n-1,S); // can’t use nth item
+    else 
+        result = max{v_n + Value(n-1, S-s_n), Value(n-1, S)};
+    return result;
+}
+</code></pre><p>Right now, this takes exponential time. But, notice that there are only <em>O</em>(<em>nS</em>) <em>different</em> pairs of values the arguments can possibly take on, so this is perfect for memoizing. As with the LCS problem, let us initialize a 2-d array arr[i][j] to “unknown” for all <em>i</em>, <em>j</em>.  </p>
+<pre><code>Value(n,S) 
+{
+    if (n == 0) 
+        return 0;
+    if (arr[n][S] != unknown) 
+        return arr[n][S]; // &lt;- added this 
+    if (s_n &gt; S) 
+        result = Value(n-1,S);
+    else 
+        result = max{v_n + Value(n-1, S-s_n), Value(n-1, S)}; 
+    arr[n][S] = result; // &lt;- and this 
+    return result;
+}
+</code></pre><p>Since any given pair of arguments to Value can pass through the array check only once, and in doing so produces at most two recursive calls, we have at most 2<em>n</em>(<em>S</em> + 1) recursive calls total, and the total time is <em>O</em>(<em>nS</em>).  </p>
+<p>So far we have only discussed computing the <em>value</em> of the optimal solution. How can we get the items? As usual for Dynamic Programming, we can do this by just working backwards: if arr[n][S] = arr[n-1][S] then we <em>didn’t</em> use the nth item so we just recursively work backwards from arr[n-1][S]. Otherwise, we <em>did</em> use that item, so we just output the <em>n</em>th item and recursively work backwards from arr[n-1][S-s_n]. One can also do bottom-up Dynamic Programming.</p>
+<h2 id="Example__233_3A_Matrix_product_parenthesization"><a href="#Example__233_3A_Matrix_product_parenthesization" class="headerlink" title="Example #3: Matrix product parenthesization"></a>Example #3: Matrix product parenthesization</h2><p>Our final example for Dynamic Programming is the matrix product parenthesization problem.</p>
+<p>Say we want to multiply three matrices <em>X</em>, <em>Y</em>, and <em>Z</em>. We could do it like (<em>XY</em>)<em>Z</em> or like <em>X</em>(<em>YZ</em>). Which way we do the multiplication doesn’t affect the final outcome but it can affect the running time to compute it. For example, say <em>X</em> is 100x20, <em>Y</em> is 20x100, and <em>Z</em> is 100x20. So, the end result will be a 100x20 matrix. If we multiply using the usual algorithm, then to multiply an <em>lxm</em> matrix by an <em>mxn</em> matrix takes time <em>O</em>(<em>lmn</em>). So in this case, which is better, doing (<em>XY</em>)<em>Z</em> or <em>X</em>(<em>YZ</em>)?  </p>
+<p>Answer: <em>X</em>(<em>YZ</em>) is better because computing <em>YZ</em> takes 20x100x20 steps, producing a 20x20 matrix, and then multiplying this by <em>X</em> takes another 20x100x20 steps, for a total of 2x20x100x20. But, doing it the other way takes 100x20x100 steps to compute <em>XY</em> , and then multplying this with <em>Z</em> takes another 100x20x100 steps, so overall this way takes 5 times longer. More generally, what if we want to multiply a series of <em>n</em> matrices?  </p>
+<p><strong>Definition 3</strong> <em>The <strong>Matrix Product Parenthesization</strong> problem is as follows. Suppose we need to multiply a series of matrices: A<sub>1</sub> × A<sub>2</sub> × A<sub>3</sub> × . . . × A<sub>n</sub>. Given the dimensions of these matrices, what is the best way to parenthesize them, assuming for simplicity that standard matrix multiplication is to be used (e.g., not Strassen)?</em>  </p>
+<p>There are an exponential number of different possible parenthesizations, in fact [2(n−1),n-1]/<em>n</em>, so we don’t want to search through all of them. Dynamic Programming gives us a better way.  </p>
+<p>As before, let’s first think: how might we do this recursively? One way is that for each possible split for the final multiplication, recursively solve for the optimal parenthesization of the left and right sides, and calculate the total cost (the sum of the costs returned by the two recursive calls plus the <em>lmn</em> cost of the final multiplication, where “<em>m</em>” depends on the location of that split). Then take the overall best top-level split.  </p>
+<p>For Dynamic Programming, the key question is now: in the above procedure, as you go through the recursion, what do the subproblems look like and how many are there? Answer: each subproblem looks like “what is the best way to multiply some sub-interval of the matrices <em>A<sub>i</sub> × . . . × A<sub>j</sub></em>?” So, there are only <em>O</em>(<em>n</em><sup>2</sup>) <em>different</em> subproblems.  </p>
+<p>The second question is now: how long does it take to solve a given subproblem assuming you’ve already solved all the smaller subproblems (i.e., how much time is spent inside any <em>given</em> recursive call)? Answer: to figure out how to best multiply <em>A<sub>i</sub> × . . . × A<sub>j</sub></em>, we just consider all possible middle points <em>k</em> and select the one that minimizes:</p>
+<center>optimal cost to multiply <em>A<sub>i</sub> . . . A<sub>k</sub></em> ← already computed</center><br><center>+ optimal cost to multiply <em>A<sub>k+1</sub> . . . A<sub>j</sub></em> ← already computed</center><br><center>+ cost to multiply the results. ← get this from the dimensions</center>  
+
+
+<p>This just takes <em>O</em>(1) work for any given <em>k</em>, and there are at most <em>n</em> different values <em>k</em> to consider, so overall we just spend <em>O</em>(<em>n</em>) time per subproblem. So, if we use Dynamic Programming to save our results in a lookup table, then since there are only <em>O</em>(<em>n</em><sup>2</sup>) subproblems we will spend only <em>O</em>(<em>n</em><sup>3</sup>) time overall.  </p>
+<p>If you want to do this using bottom-up Dynamic Programming, you would first solve for all sub- problems with <em>j</em> − <em>i</em> = 1, then solve for all with <em>j</em> − <em>i</em> = 2, and so on, storing your results in an <em>n</em> by <em>n</em> matrix. The main difference between this problem and the two previous ones we have seen is that any given subproblem takes time <em>O</em>(<em>n</em>) to solve rather than <em>O</em>(1), which is why we get <em>O</em>(<em>n</em><sup>3</sup>) total running time. It turns out that by being very clever you can actually reduce this to _O-(1) amortized time per subproblem, producing an <em>O</em>(<em>n</em><sup>2</sup>)-time algorithm, but we won’t get into that here.</p>
+<h2 id="High-level_Discussion_of_Dynamic_Programming"><a href="#High-level_Discussion_of_Dynamic_Programming" class="headerlink" title="High-level Discussion of Dynamic Programming"></a>High-level Discussion of Dynamic Programming</h2><p>What kinds of problems can be solved using Dynamic Programming? One property these problems have is that if the optimal solution involves solving a subproblem, then it uses the optimal solution to that subproblem. For instance, say we want to find the shortest path from <em>A</em> to <em>B</em> in a graph, and say this shortest path goes through <em>C</em>. Then it must be using the shortest path from <em>C</em> to <em>B</em>. Or, in the knapsack example, if the optimal solution does not use item <em>n</em>, then it is the optimal solution for the problem in which item <em>n</em> does not exist. The other key property is that there should be only a polynomial number of different subproblems. These two properties together allow us to build the optimal solution to the final problem from optimal solutions to subproblems.  </p>
+<p>In the top-down view of dynamic programming, the first property above corresponds to being able to write down a recursive procedure for the problem we want to solve. The second property corresponds to making sure that this recursive procedure makes only a polynomial number of <em>different</em> recursive calls. In particular, one can often notice this second property by examining the arguments to the recursive procedure: e.g., if there are only two integer arguments that range between 1 and <em>n</em>, then there can be at most <em>n</em><sup>2</sup> different recursive calls.  </p>
+<p>Sometimes you need to do a little work on the problem to get the optimal-subproblem-solution property. For instance, suppose we are trying to find paths between locations in a city, and some intersections have no-left-turn rules (this is particulatly bad in San Francisco). Then, just because the fastest way from <em>A</em> to <em>B</em> goes through intersection <em>C</em>, it doesn’t necessarily use the fastest way to <em>C</em> because you might need to be coming into <em>C</em> in the correct direction. In fact, the right way to model that problem as a graph is not to have one node per intersection, but rather to have one node per ⟨<em>intersection</em>, <em>direction</em>⟩ pair. That way you recover the property you need.</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
       
-        <div class="icon"></div>
-        <time datetime="2015-12-12T15:22:28.000Z"><a href="/2015/12/12/hello-world/">2015-12-12</a></time>
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2016/01/09/Prove-The-Correctness-of-Greedy-Algorithm/">
+  <time datetime="2016-01-08T16:13:16.000Z">
+    2016-01-09
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2016/01/09/Prove-The-Correctness-of-Greedy-Algorithm/">The Correctness of Greedy Algorithm</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>Greedy algorithms can be some of the simplest algorithms to implement, but they’re often among the hardest algorithms to design and analyze. You can often stumble on the right algorithm but not recognize that you’ve found it, or might find an algorithm you’re sure is correct and hit a brick wall trying to formally prove its correctness.  </p>
+<p>This handout discusses how to structure the two major proof techniques we’ve covered for greedy algorithms (“greedy stays ahead” and exchange arguments) and gives some intuition for when one might be appropriate over the other. We recommend referring to the lecture slides for examples of formal, worked examples of these proofs in practice.  </p>
+<h2 id="Format_for_Correctness_Proofs"><a href="#Format_for_Correctness_Proofs" class="headerlink" title="Format for Correctness Proofs"></a>Format for Correctness Proofs</h2><p>Greedy algorithms are often used to solve optimization problems: you want to maximize or minimize some quantity subject to a set of constraints. For example:  </p>
+<p>• Maximize the number of events you can attend, but do not attend any overlapping events.<br>• Minimize the number of jumps required to cross the pond, but do not fall into the water.<br>• Minimize the cost of all edges chosen, but do not disconnect the graph.  </p>
+<p>When you are trying to write a proof that shows that a greedy algorithm is correct, you often need to show two different results. First, you need to show that your algorithm produces a <em>feasible solution</em>, a solution to the problem that obeys the constraints. For example, when discussing the frog jumping problem, we needed to prove that the series of jumps the greedy algorithm found actually gave a legal path across the pond. Next, you need to show that your algorithm produces an <em>optimal solution</em>, a solution that maximizes or minimizes the appropriate quantity.  </p>
+<p>It’s usually much easier to prove feasibility than to prove optimality, and in lecture we’ve routinely hand-waved our way through this. When writing up a formal proof of correctness, though, you shouldn’t skip this step. Typically, these proofs work by induction, showing that at each step, the greedy choice does not violate the constraints and that the algorithm terminates with a correct solution.  </p>
+<p>As an example, here is a formal proof of feasibility for Prim’s algorithm. In lecture, we saw that the general idea behind the proof was to show that the set <em>T</em> of edges added to the MST so far form a spanning tree of the set <em>S</em>. The proof uses the fact that a tree is a connected graph where |<em>E</em>| = |<em>V</em>| – 1 to show that after we add an edge crossing the cut (<em>S</em>, <em>V</em> – <em>S</em>), the set <em>T</em> must be a tree because it has the right number of edges and is still connected.  </p>
+<p>Here is how we might formalize this:  </p>
+<p><em>Theorem (Feasibility):</em> Prim’s algorithm returns a spanning tree.<br><em>Proof:</em> We prove by induction that after <em>k</em> edges are added to <em>T</em>, that <em>T</em> forms a spanning tree of <em>S</em>. As a base case, after 0 edges are added, <em>T</em> is empty and S is the single node {<em>v</em>}. Also, the set <em>S</em> is connected by the edges in <em>T</em> because <em>v</em> is connected to itself by any set of edges. Therefore, <em>T</em> connects <em>S</em> and satisfies |<em>T</em>| = |<em>S</em>| - 1, so <em>T</em> is a spanning tree of <em>S</em>.  </p>
+<p>For the inductive step, assume the claim is true after <em>k</em> edges are added. If at this point <em>S</em> = <em>V</em>, the algorithm terminates, and since <em>T</em> is a spanning tree of <em>S</em>, <em>T</em> is a spanning tree of <em>V</em>, as required. Otherwise, <em>S</em> ≠ <em>V</em>, so the algorithm proceeds for another iteration. Prim’s algorithm selects an edge (<em>u</em>, <em>v</em>) crossing the cut (<em>S</em>, <em>V</em> – <em>S</em>) and then sets <em>S</em> to <em>S</em> ∪ {<em>v</em>} and <em>T</em> to <em>T</em> ∪ {(<em>u</em>, <em>v</em>)} Since at the start of the iteration <em>T</em> was a spanning tree for <em>S</em>, it connected all nodes in <em>S</em>. Therefore, all nodes in <em>S</em> are still connected to one another, and <em>v</em> is now connected to all nodes in <em>S</em> ∪ {<em>v</em>}, since it is connected to <em>u</em> and <em>u</em> is connected to all nodes in <em>S</em>. Finally, note |<em>T</em> ∪ {(<em>u</em>,<em>v</em>)}| = |<em>S</em>| – 1 + 1 = |<em>S</em>| = |<em>S</em> ∪ {<em>v</em>}| – 1,so <em>T</em> ∪ {(<em>u</em>,<em>v</em>)} is a spanning tree for <em>S</em> ∪ {<em>v</em>}, so the claim holds after <em>k</em> + 1 edges have been added.   </p>
+<h2 id="u201CGreedy_Stays_Ahead_u201D_Arguments"><a href="#u201CGreedy_Stays_Ahead_u201D_Arguments" class="headerlink" title="“Greedy Stays Ahead” Arguments"></a>“Greedy Stays Ahead” Arguments</h2><p>One of the simplest methods for showing that a greedy algorithm is correct is to use a “greedy stays ahead” argument. This style of proof works by showing that, according to some measure, the greedy algorithm always is at least as far ahead as the optimal solution during each iteration of the algorithm. Once you have established this, you can then use this fact to show that the greedy algorithm must be optimal.  </p>
+<p>Typically, you would structure a “greedy stays ahead” argument in four steps:  </p>
+<p><strong>• Define Your Solution.</strong> Your algorithm will produce some object <em>X</em> and you will probably compare it against some optimal solution <em>X*</em>. Introduce some variables denoting your algorithm’s solution and the optimal solution.  </p>
+<p><strong>• Define Your Measure.</strong> Your goal is to find a series of measurements you can make of your solution and the optimal solution. Define some series of measures <em>m<sub>1</sub></em>(<em>X</em>), <em>m<sub>2</sub></em>(<em>X</em>), …, <em>m<sub>n</sub></em>(<em>X</em>) such that <em>m<sub>1</sub></em>(<em>X*</em>), <em>m<sub>2</sub></em>(<em>X*</em>), …, <em>m<sub>k</sub></em>(<em>X*</em>) is also defined for some choices of <em>m</em> and <em>n</em>. Note that there might be a different number of measures for <em>X</em> and <em>X*</em>, since you can’t assume at this point that <em>X</em> is optimal.  </p>
+<p><strong>• Prove Greedy Stays Ahead.</strong>Prove that <em>m<sub>i</sub></em>(<em>X</em>) ≥ <em>m<sub>i</sub></em>(<em>X*</em>) or that <em>m<sub>i</sub></em>(<em>X</em>) ≤ <em>m<sub>i</sub></em>(<em>X*</em>), whichever is appropriate, for all reasonable values of <em>i</em>. This argument is usually done inductively.  </p>
+<p><strong>• Prove Optimality.</strong> Using the fact that greedy stays ahead, prove that the greedy algorithm must produce an optimal solution. This argument is often done by contradiction by assuming the greedy solution isn’t optimal and using the fact that greedy stays ahead to derive a contradiction.  </p>
+<p>When writing up a proof of this form, you don’t need to explicitly enumerate these steps (we didn’t do this in lecture, if you’ll recall). However, these steps likely need to be here. If you don’t define your solution and the optimal solution, the notation won’t make sense later on. If you don’t specify your measurements, you can’t prove anything about them. If you forget to prove that greedy stays ahead, the rest of your proof can’t assume it. Finally, if you don’t prove how the fact that greedy stays ahead implies optimality, you haven’t actually proven what you need to prove (namely, that you get an optimal solution.)  </p>
+<p>The main challenge with this style of argument is finding the right measurements to make. If you pick the wrong measurements, you will either get stuck proving that greedy stays ahead (often because it doesn’t always stay ahead!) or proving that because greedy stays ahead, the algorithm must be optimal (often because you’re using the wrong measurement). As mentioned in lecture, it’s often useful to try showing that <em>if</em> greedy stays ahead according to your measurements, then the algorithm is optimal before you try actually showing that greedy stays ahead. That way, you won’t end up trying to prove that greedy stays ahead in a measurement with no bearing on the result.  </p>
+<p>A few other common pitfalls to watch out for:  </p>
+<p>• When defining your measurements, make sure that you define them in a way that lets you measure the optimal solution you’re comparing against, especially if that solution wasn’t generated by the greedy algorithm. It’s typically easy to find measurements of the greedy solution because it’s generated one step at a time; the challenge is figuring out how to determine what specifically those measurements are made on. For example, in the interval scheduling problem, the measurements made corresponded to the end times of the events as they were added to the greedy solution. To make those measurements applicable to the arbitrarily-chosen optimal schedule <em>S*</em>, we had to define those measurements on an absolute scale: our measurements measured the finishing times of the <em>i</em>th event to finish, sorted by order of finishing time.  </p>
+<p>• Be wary of the case where the greedy solution and optimal solutions don’t necessarily have the same sizes as one another. In some problems, such as the MST problem, all legal spanning trees have the same sizes as one another, though they have different costs. In others, such as a the frog jumping problem, different solutions might have different numbers of jumps in them. If you do use a “greedy stays ahead” argument, you should be sure that you don’t try showing that your greedy algorithm is better by some measure <em>m<sub>n</sub></em> if the optimal solution can only be measured by <em>k</em> &lt; <em>n</em> measurements.  </p>
+<p>• Although the name of the argument is “greedy stays ahead,” you are usually more properly showing that “greedy never falls behind.” That is, you want to show that the greedy solution is <em>at least as good</em> as the optimal solution, not strictly better than the optimal solution.  </p>
+<p>It takes some practice to know when a “greedy stays ahead” proof will be appropriate. Often, these arguments are useful when optimal solutions might have different sizes, since you can use the fact that greedy stays ahead to explain why your solution must be no bigger/no smaller than the optimal solution: if the greedy algorithm did/didn’t terminate at some step, then the optimal solution at that point must be too big/too small and therefore is incorrect. However, there’s no hard-and-fast rule about where to apply this proof technique, and you’ll build experience working with it as you work through the problem set on greedy algorithms.  </p>
+<h2 id="Exchange_Arguments"><a href="#Exchange_Arguments" class="headerlink" title="Exchange Arguments"></a>Exchange Arguments</h2><p>Exchange arguments are a powerful and versatile technique for proving optimality of greedy algorithms. They work by showing that you can iteratively transform any optimal solution into the solution produced by the greedy algorithm without changing the cost of the optimal solution, thereby proving that the greedy solution is optimal.  </p>
+<p>Typically, exchange arguments are set up as follows:  </p>
+<p><strong>• Define Your Solutions.</strong> You will be comparing your greedy solution <em>X</em> to an optimal solution <em>X*</em>, so it’s best to define these variables explicitly.  </p>
+<p><strong>• Compare Solutions.</strong> Next, show that if <em>X</em> ≠ <em>X*</em>, then they must differ in some way. This could mean that there’s a piece of <em>X</em> that’s not in <em>X*</em>, or that two elements of <em>X</em> that are in a different order in <em>X*</em>, etc. You might want to give those pieces names.  </p>
+<p><strong>• Exchange Pieces.</strong> Show how to transform <em>X*</em> by exchanging some piece of <em>X*</em> for some piece of <em>X</em>. You’ll typically use the piece you described in the previous step. Then, prove that by doing so, you did not increase/decrease the cost of <em>X*</em> and therefore have a different optimal solution. (You might also be able to immediately conclude that you’ve strictly worsened <em>X*</em>, in which case you’re done. This is uncommon and usually only works if there’s just one optimal solution.)  </p>
+<p><strong>• Iterate.</strong> Argue that you have decreased the number of differences between <em>X</em> and <em>X*</em> by performing the exchange, and that by iterating this process you can turn <em>X*</em> into <em>X</em> without impacting the quality of the solution. Therefore, <em>X</em> must be optimal. (To be very rigorous here, you would probably proceed by induction to show this, but for the purposes of this class it’s fine to hand-wave and explain why you could iteratively transform the solution.)  </p>
+<p>In some cases, exchange arguments can be significantly easier than “greedy stays ahead” arguments, since often the reason you were greedily optimizing over some quantity is because any solution that doesn’t greedily optimize that quantity is either suboptimal or could be locally modified to optimize it without changing its cost.  </p>
+<p>When writing up exchange arguments, watch out for the following:  </p>
+<p>• Your solution <em>X</em> could be optimal even if <em>X</em> ≠ <em>X*</em>, since there can be many optimal solutions to the same problem. Approaching these proofs by contradiction can get you stuck because you won’t actually get a contradiction by making a local modification to the optimal solution. Typically, you will only get a contradiction if there is only one optimal solution.  </p>
+<p>• Your solution may need to iteratively transform <em>X*</em> into <em>X</em>. Making one modification makes <em>X*</em> and <em>X</em> closer to one another, but it doesn’t guarantee that <em>X</em> and <em>X*</em> are now equal. This is why we suggest ending your proof with an iteration argument explaining why the procedure can be iterated.  </p>
+<p>• Be sure your proof accounts for why the piece of <em>X</em> you’re exchanging for a piece of <em>X*</em> actually must exist in the first place. This shouldn’t be too hard, since it typically follows from the fact that <em>X</em> ≠ <em>X*</em>, but you should offer some justification.  </p>
+<p>As with “greedy stays ahead,” there is no hard-and-fast rule explaining when this proof technique will work. Exchange arguments work particularly well when all optimal solutions have the same size and differ only in their cost, since that way you can justify how you are going to remove some part of the optimal solution and snap another one in its place. Determining when to use exchange arguments is a skill you’ll pick up as you practice on the problem set.</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
       
       
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/12/12/hello-world/">
+  <time datetime="2015-12-12T15:22:28.000Z">
+    2015-12-12
+  </time>
+</a>
+    
+    
   
     <h1 class="title"><a href="/2015/12/12/hello-world/">Hello World</a></h1>
   
 
-    </header>
-    <div class="entry">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+  </header>
+  
+  <div class="entry">
+    
+      <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -69,61 +305,62 @@
 <h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
+    
   </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
 
+  
 
-
-
-<nav id="pagination">
+  <nav id="pagination">
   
   
   <div class="clearfix"></div>
-</nav></div></div>
-    <aside id="sidebar" class="alignright">
-  <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="搜尋">
-    <input type="hidden" name="q" value="site:yoursite.com">
-  </form>
+</nav>
+
 </div>
-
-  
-
-  
-</aside>
-    <div class="clearfix"></div>
   </div>
-  <footer id="footer" class="inner"><div class="alignleft">
+  <footer id="footer"><div class="copyright">
   
-  &copy; 2015 John Doe
+  &copy; 2016 <a href="/">Yutong Liang</a>
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
+
+<script type="text/javascript">
+  var disqus_shortname = 'ryanliang129';
+
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
 
 
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
 </script>
 
+  
 </body>
 </html>
